@@ -1,7 +1,9 @@
-## Django Tastypie Html (v 0.1) ##
+### Django Tastypie Html (v 0.1) ###
 ----------------
 
-This app implements a HTML/JSON serializer to be used with [django-tastypie](https://github.com/toastdriven/django-tastypie) resources. Using the `HtmlJsonSerializer` class a single resource class would serve both `HTML` and `JSON` responses based on requested format.
+This app implements a HTML/JSON serializer to be used with [django-tastypie](https://github.com/toastdriven/django-tastypie) resources. Using the `HtmlJsonSerializer` class, a single resource class
+would serve both `HTML` and `JSON` response based on requested format.
+
 ----------------
 
 ### Installation ###
