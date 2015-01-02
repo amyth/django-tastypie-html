@@ -64,3 +64,4 @@ Possible options are `json` and `html`. Default is `html` in case it is not defi
 ### contributors ###
 
 [Amyth Arora](https://plus.google.com/+AmythArora)
+[Rahul Gupta](https://github.com/rahulgupta92)
