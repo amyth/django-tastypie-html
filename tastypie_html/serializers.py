@@ -20,6 +20,8 @@
 #    along with this program; if not, write to the Free Software
 #    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import urlparse
+
 from django.template import loader, Context, TemplateDoesNotExist
 from django.template.response import TemplateResponse
 
@@ -33,8 +35,9 @@ class HtmlJsonSerializer(Serializer):
     html serialization/deserialization.
     """
 
-    def __init__(self, template_name, *args, **kwargs):
+    def __init__(self, template_name, forms=None, *args, **kwargs):
         self.template_name = template_name
+        self.forms = forms if forms else {}
         super(HtmlJsonSerializer, self).__init__(*args, **kwargs)
 
     def to_json(self, request, data, *args, **kwargs):
@@ -55,6 +58,11 @@ class HtmlJsonSerializer(Serializer):
                 obj for obj in objects]
         data['objects'] = objects
 
+        # Add forms to the context
+        if self.forms:
+            for name, form in self.forms.iteritems():
+                data[name] = form
+
         try:
             t = TemplateResponse(request, template, data)
             t.render()
@@ -69,7 +77,9 @@ class HtmlJsonSerializer(Serializer):
         form data into python data.
         """
 
-        return content
+        qdict = urlparse.parse_qs(content)
+        return qdict
+
 
     def serialize(self, request, bundle, format='application/json', options=None):
         """
@@ -96,3 +106,10 @@ class HtmlJsonSerializer(Serializer):
         serialized = getattr(self, "to_%s" % desired_format)(
                 request, bundle, options)
         return serialized
+
+    def deserialize(self, content, format="application/json"):
+        if format == 'application/x-www-form-urlencoded':
+            format = 'text/html'
+
+        return super(HtmlJsonSerializer, self).deserialize(content,
+                format=format)
