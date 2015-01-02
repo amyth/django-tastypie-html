@@ -26,11 +26,11 @@ Once installed you can use the app as follows:
 
 ```
     #api.py
-    
+
     from tastypie.resource import resources
     from tastypie_html.serializers import HtmlJsonSerializer
-    
-    
+
+
     class TestResource(resources.ModelResource):
         class Meta:
             serializer = HtmlJsonSerialier('example.html') # pass the template
@@ -40,12 +40,12 @@ Once installed you can use the app as follows:
 
 ```
     #api.py
-    
+
     from tastypie.resource import resources
     from tastypie_html.mixins import TastyHtmlMixin
     from tastypie_html.serializers import HtmlJsonSerializer
-    
-    
+
+
     class TestResource(resources.ModelResource, TastyHtmlMixin):
         class Meta(TastyHtmlMixin.Meta):
             serializer = HtmlJsonSerialier('example.html')
@@ -55,9 +55,9 @@ Once installed you can use the app as follows:
 ### Settings ###
 
 
-#####`TASTYPIE_HTML_DEFAULT_FORMAT` ####
+#####`TASTYPIE_HTML_DEFAULT_FORMAT = 'html'` ####
 
-options are `json` and `html`. Default is `html`
+Possible options are `json` and `html`. Default is `html` in case it is not defined.
 
 ----------------
 
