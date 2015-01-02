@@ -1,9 +1,9 @@
-## Django Tastypie Html (v 0.1)
-<br>
+## Django Tastypie Html (v 0.1) ##
+
 This app implements a HTML/JSON serializer to be used with [django-tastypie](https://github.com/toastdriven/django-tastypie) resources. Using the `HtmlJsonSerializer` class a single resource class would serve both `HTML` and `JSON` responses based on requested format.
 ----------------
 
-### Installation
+### Installation ###
 
 Currently DTH does not have a pip package. So to install the app you'd need to clone the repo and add it to your python path
 
@@ -13,7 +13,7 @@ export PYTHONPATH=$PYTHONPATH:/path/to/repo
 ```
 ----------------
 
-### Usage
+### Usage ###
 
 Once installed you can use the app as follows:
 
@@ -49,15 +49,15 @@ Once installed you can use the app as follows:
 ```
 ----------------
 
-### Settings
+### Settings ###
 
-<br>
-#####`TASTYPIE_HTML_DEFAULT_FORMAT`
-<br>
+
+#####`TASTYPIE_HTML_DEFAULT_FORMAT` ####
+
 options are `json` and `html`. Default is `html`
 
 ----------------
 
-### contributors
-<br>
+### contributors ###
+
 [Amyth Arora](https://plus.google.com/+AmythArora)
